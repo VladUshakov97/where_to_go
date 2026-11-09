@@ -3,6 +3,7 @@ from django.templatetags.static import static
 from .models import Place
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
 
 
 # Create your views here.
@@ -43,7 +44,7 @@ def index(request):
             'properties': {
                 'title': place.title,
                 'placeId': place.id,
-                'detailsUrl': ''
+                'detailsUrl': reverse('place_detail', args=[place.id]),
             }
         }
         places_geojson['features'].append(place_data)
