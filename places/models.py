@@ -23,12 +23,12 @@ class PlaceImage(models.Model):
 		related_name='images')
 
 	image = models.ImageField(upload_to='places/', verbose_name='Картинка')
-	order = models.PositiveIntegerField(default=0)
+	order = models.PositiveIntegerField(default=0, db_index=True)
 
 	def __str__(self):
 		return f'{self.order} {self.place.title}'
 
 	class Meta:
 		ordering = ['order']
-		verbose_name_plural ='Фотографии'
+		verbose_name_plural = 'Фотографии'
 
