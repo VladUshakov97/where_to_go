@@ -15,8 +15,8 @@ def place_detail(request, place_id):
         image_urls.append(image.image.url)
     place_data = {
         'title': place.title,
-        'description_short': place.description_short,
-        'description_long': place.description_long,
+        'description_short': place.short_description,
+        'description_long': place.long_description,
         'imgs': image_urls,
         'coordinates': {
             'lng': place.lon,
@@ -48,7 +48,6 @@ def index(request):
             }
         }
         places_geojson['features'].append(place_data)
-    print(place.lon, place.lat)
 
     context = {
         'places_geojson': places_geojson,
