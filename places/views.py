@@ -25,7 +25,12 @@ def place_detail(request, place_id):
         }
     }
 
-    return JsonResponse(place_data)
+    return JsonResponse(
+    place_data,
+    json_dumps_params={
+        'ensure_ascii': False,
+        'indent': 4,
+    })
 
 
 def index(request):
