@@ -27,11 +27,9 @@ class Command(BaseCommand):
 			for image in place_data['imgs']:
 				image_response = requests.get(image)
 				image_response.raise_for_status()
-				image_file = ContentFile(image_response.content)
-				place_image = PlaceImage(place=place)
-				name = image.split('/')
-				filename = name[-1]
-				place_image.image.save(filename, image_file)
+				filename = image.split('/')[-1]
+				image_file = ContentFile(image_response.content, name=filename)
+				PlaceImage.objects.create(place=place, image=image_file)
 
 
 	def add_arguments(self, parser):
