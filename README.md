@@ -80,9 +80,7 @@ python -m pip install -r requirements.txt
 Добавьте следующие переменные:
 
 ```
-DEBUG=True
 SECRET_KEY=ваш_секретный_ключ
-ALLOWED_HOSTS=127.0.0.1,localhost
 ```
 Для генерации секретного ключа используйте:
 
