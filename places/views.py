@@ -8,7 +8,9 @@ from django.urls import reverse
 
 def place_detail(request, place_id):
     place = get_object_or_404(Place, id=place_id)
-    images = place.images.all()
+    images = PlaceImage.objects.filter(
+        place_id=place_id).select_related(
+        'place')
     image_urls = []
     for image in images:
         image_urls.append(image.image.url)
