@@ -8,7 +8,6 @@ class Place(models.Model):
 	lon = models.FloatField(verbose_name='Долгота')
 	lat = models.FloatField(verbose_name='Широта')
 
-
 	def __str__(self):
 		return self.title
 

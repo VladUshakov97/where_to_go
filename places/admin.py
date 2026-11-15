@@ -10,7 +10,9 @@ class PlaceImageInline(SortableTabularInline):
 	fields = ['image', 'image_preview']
 	def image_preview(self, obj):
 		if obj and obj.image:
-			return format_html('<img src="{}" style="max-height: 200px; width: auto;">', obj.image.url)
+			return format_html(
+				'<img src="{}" style="max-height: 200px; width: auto;">', 
+				obj.image.url)
 		else:
 			return 'Нет фотографии'
 	model = PlaceImage
