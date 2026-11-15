@@ -6,7 +6,6 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
 
-# Create your views here.
 def place_detail(request, place_id):
     place = get_object_or_404(Place, id=place_id)
     images = place.images.all()
