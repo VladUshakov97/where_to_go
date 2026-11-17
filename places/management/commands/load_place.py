@@ -24,8 +24,8 @@ class Command(BaseCommand):
 			defaults={
 			    'lon': longitude,
 			    'lat': latitude,
-			    'description_short': place_data['short_description'],
-			    'description_long': place_data['long_description']
+			    'short_description': place_data['short_description'],
+			    'long_description': place_data['long_description']
 			}
 		)
 
